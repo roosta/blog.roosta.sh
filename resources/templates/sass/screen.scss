@@ -1,20 +1,38 @@
-$color-bg0: #595643;
-$color-bg1: #4E6B66;
-$color-hl0: #ED834E;
-$color-hl1: #EBCC6E;
-$color-fg:  #EBE1C5;
-$font-body: 'Anonymous Pro', sans-serif;
-$font-nav:  'Anonymous Pro', sans-serif;
-$font-head: 'Anonymous Pro', sans-serif;
+$color-bg0: #282828;
+$color-bg1: #3C3836;
+$color-border: #EBCC6E;
+$color-fg0:  #EBDBB2;
+$color-fg1:  #BDAE93;
+$color-hl0: #8EC07C;
+$color-hl1: #458588;
+$color-hover: #83A598;
+$color-nav: #458588;
+$font-body: 'Source Sans Pro', sans-serif;
+$font-nav:  'Source Sans Pro', sans-serif;
+$font-head: 'Source Sans Pro', sans-serif;
+$font-code: monospace;
+$font-size: 16px;
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-head; }
 
 body {
-  color: $color-fg;
+  color: $color-fg0;
   background-color: $color-bg0;
   font-family: $font-body;
-  font-size: 16px; }
+  font-size: $font-size; }
+
+a {
+  color: $color-hl1; }
+
+h2 {
+  font-size: 1.8em }
+
+h3 {
+  font-size: 1.6em; }
+
+a:hover {
+  color: $color-hover; }
 
 .container {
   max-width: 1000px; }
@@ -27,7 +45,7 @@ body {
   border-radius: 0; }
 
 .navbar-default {
-  background-color: $color-bg1;
+  background-color: $color-nav;
   border: none; }
 
 .navbar-default .navbar-brand {
@@ -59,9 +77,10 @@ body {
   margin-top: 50px; }
 
 #content {
-  background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 0 0 0, 0 6px 12px rgba(34, 34, 34, 0.1); }
+  background-color: $color-bg0;
+  //border-radius: 3px;
+  //box-shadow: 0 0 0 0, 0 6px 12px rgba(34, 34, 34, 0.1);
+}
 
 #content img {
   max-width: 100%;
@@ -74,29 +93,35 @@ footer {
   padding-bottom: 30px; }
 
 #post-tags {
-  margin-top: 30px; }
+  margin-top: 22px; }
 
 #prev-next {
   padding: 15px 0; }
 
 .post-header {
-  margin-bottom: 20px; }
+  margin-bottom: 18px; }
 
 .post-header h2 {
-  font-size: 14px; }
+  font-size: 2em; }
 
 #post-meta {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.4); }
+  font-size: 1em;
+  /*color: rgba(0, 0, 0, 0.4);*/
+  color: $color-fg1;
+}
 
 #page-header {
   border-bottom: 1px solid #dbdbdb;
   margin-bottom: 20px; }
 
 #page-header h2 {
-  font-size: 12px; }
+  font-size: 22px; }
 
 pre {
+  background-color: $color-bg1;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
   overflow-x: auto; }
 
 pre code {
@@ -104,7 +129,9 @@ pre code {
   white-space: pre; }
 
 code {
-  color: #428bca; }
+  font-family: $font-code;
+  background-color: $color-bg0;
+  color: $color-hl0; }
 
 pre, code, .hljs {
   /*background-color: #f7f9fd; */
@@ -130,7 +157,7 @@ pre, code, .hljs {
     font-size: 14px; }
 
   .navbar-default .navbar-brand {
-    font-size: 30px; }
+    font-size: 20px; }
 
   #content {
     padding: 15px; }
