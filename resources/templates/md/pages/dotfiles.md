@@ -1,6 +1,7 @@
-{:title "Another Page"
+{:title "Dotfiles"
  :layout :page
- :page-index 1}
+ :page-index 1
+ :navbar? true}
 
 ## Dotfiles
 

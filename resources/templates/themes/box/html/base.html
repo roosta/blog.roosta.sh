@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/gruvbox-dark.css">
+    {% style "css/gruvbox-dark.css" %}
     {% style "css/screen.css" %}
 </head>
 <body>
@@ -58,8 +58,7 @@
             <div id="sidebar">
                 <h3>Links</h3>
                 <ul id="links">
-                    <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li>
-                    <li><a href="http://carmenla.me/blog/archives">Carmen's Blog</a></li>
+                    <li><a target="_blank" href="https://github.com/roosta">Github</a></li>
                     {% for page in sidebar-pages %}
                     <li><a href="{{page.uri}}">{{page.title}}</a></li>
                     {% endfor %}
