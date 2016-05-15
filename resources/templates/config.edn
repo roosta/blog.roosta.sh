@@ -15,7 +15,7 @@
  :post-date-format   "yyyy-MM-dd"
  :sass-src           "sass"
  :sass-dest          "css"
- :theme              "mangos"
+ :theme              "box"
  :resources          ["img"]
  :keep-files         [".git"]
  :disqus?            false
