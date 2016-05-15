@@ -13,9 +13,9 @@
  :rss-filters        ["cryogen"]
  :recent-posts       3
  :post-date-format   "yyyy-MM-dd"
- :sass-src           nil
- :sass-dest          nil
- :theme              "blue_centered"
+ :sass-src           "sass"
+ :sass-dest          "css"
+ :theme              "mangos"
  :resources          ["img"]
  :keep-files         [".git"]
  :disqus?            false
