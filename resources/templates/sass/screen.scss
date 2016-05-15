@@ -1,17 +1,17 @@
-$color-bg0: #282828;
-$color-bg1: #3C3836;
+$color-bg0:    #282828;
+$color-bg1:    #3C3836;
 $color-border: #EBCC6E;
-$color-fg0:  #EBDBB2;
-$color-fg1:  #BDAE93;
-$color-hl0: #8EC07C;
-$color-hl1: #458588;
-$color-hover: #83A598;
-$color-nav: #458588;
-$font-body: 'Source Sans Pro', sans-serif;
-$font-nav:  'Source Sans Pro', sans-serif;
-$font-head: 'Source Sans Pro', sans-serif;
-$font-code: monospace;
-$font-size: 16px;
+$color-fg0:    #EBDBB2;
+$color-fg1:    #BDAE93;
+$color-hl0:    #8EC07C;
+$color-hl1:    #458588;
+$color-hover:  #83A598;
+$color-nav:    #3C3836;
+$font-body:    'Source Sans Pro', sans-serif;
+$font-nav:     'Source Sans Pro', sans-serif;
+$font-head:    'Source Sans Pro', sans-serif;
+$font-code:    monospace;
+$font-size:    16px;
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-head; }
@@ -49,28 +49,28 @@ a:hover {
   border: none; }
 
 .navbar-default .navbar-brand {
-  color: #fff;
+  color: $color-fg0;
   font-family: $font-nav; }
 
 .navbar-default .navbar-brand:hover {
-  color: #fff; }
+  color: $color-fg0; }
 
 .navbar-default .navbar-nav li a {
-  color: #fff; }
+  color: $color-fg0; }
 
 .navbar-default .navbar-nav li a:hover {
-  color: #fff;
-  background-color: #3d80ba; }
+  color: $color-fg0;
+  background-color: $color-hover; }
 
 .navbar-default .navbar-nav .active a {
-  color: #fff;
-  background-color: #3d80ba; }
+  color: $color-fg0;
+  background-color: $color-hl1; }
 
 .navbar-default .navbar-toggle:hover {
-  background-color: #3d80ba; }
+  background-color: $color-hl1; }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #fff; }
+  background-color: $color-fg0; }
 
 #sidebar {
   margin-left: 15px;
