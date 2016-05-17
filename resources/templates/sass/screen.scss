@@ -6,6 +6,7 @@ $color-fg1:    #BDAE93;
 $color-hl0:    #8EC07C;
 $color-hl1:    #458588;
 $color-hover:  #83A598;
+$color-faded:  #3C3836;
 $color-nav:    #3C3836;
 $font-body:    'Source Sans Pro', sans-serif;
 $font-nav:     'Source Sans Pro', sans-serif;
@@ -31,6 +32,9 @@ h2 {
 h3 {
   font-size: 1.4em; }
 
+hr {
+  border-color: $color-faded;
+}
 a:hover {
   color: $color-hover; }
 
