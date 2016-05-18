@@ -80,20 +80,9 @@ PROMPT=$PROMPT_SYMBOL_VIINS
 RPROMPT="%(?.%j.%F{red}%?%f %j%f"
 
 function zle-line-init () {
-  # Make sure the terminal is in application mode, when zle is
-  # active. Only then are the values from $terminfo valid.
-  if (( ${+terminfo[smkx]} )); then
-    printf '%s' "${terminfo[smkx]}"
-  fi
   prompt_mode
 }
 function zle-line-finish () {
-  # Make sure the terminal is in application mode, when zle is
-  # active. Only then are the values from $terminfo valid.
-  if (( ${+terminfo[rmkx]} )); then
-    printf '%s' "${terminfo[rmkx]}"
-  fi
-
   # return to block on command
   if [ -z ${TMUX+x} ]; then
      print -n -- "\E[2 q"
@@ -112,7 +101,6 @@ function prompt_mode() {
   # change prompt in VTE compatible terminals
   case $KEYMAP in
     vicmd)
-
       # change to block cursor
       if [ -z ${TMUX+x} ]; then
         print -n -- "\E[2 q"
