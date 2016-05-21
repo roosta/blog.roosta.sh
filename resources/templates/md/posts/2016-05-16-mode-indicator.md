@@ -63,60 +63,45 @@ Starting off I assume vi mode is being used (`bindkey -v`). If you use emacs mod
 
 What I ended up opting for here was changing the symbol on the prompt depending on mode rather than the cursor shape. Same method applies to cursor shape as well, but since the shell is built with a block cursor in mind there were to many cases of the cursor shape was more confusing than not. I will nevertheless include examples of both methods.
 
-I use the excellent [pure prompt](https://github.com/sindresorhus/pure) and modified it to include a mode indicator:
-<hr>
-![zsh-result](/img/zsh-result.gif)
-<hr>
-
-First thing is we create this function which checks which keymap is currently active and assigns values to the `PROMPT` variable defined over:
+Included below in the script to change only the prompt and not the cursor shape.
+I use the excellent [pure prompt](https://github.com/sindresorhus/pure) and only change the
+prompt to reflect vi modes.
 ```zsh
+
 # Define mode prompts. Both turn red on non-zero exit code
-PROMPT_SYMBOL_VIINS="%(?.%F{white}.%F{red})%f%F{magenta}%f "
-PROMPT_SYMBOL_VICMD="%(?.%F{white}.%F{red})%f%F{magenta}%f "
+# these are are swapped out depening on cursor mode. Can be anything you want.
+# see zsh man pages for details about various variables and colors and whatnot available.
+PROMPT_SYMBOL_VIINS="%(?.%F{white}.%F{red})❯%f%F{magenta}❯%f "
+PROMPT_SYMBOL_VICMD="%(?.%F{white}.%F{red})*%f%F{magenta}❯%f "
 
 # enable colors before setting prompt variable
 autoload -U colors && colors
-PROMPT=$PROMPT_SYMBOL_VIINS
-RPROMPT="%(?.%j.%F{red}%?%f %j%f"
 
+# set the initial "state"
+PROMPT=$PROMPT_SYMBOL_VIINS
+
+# define Right side prompt too. In this case they give me the last exit code
+# and the number of background jobs running
+RPROMPT="%(?.[%j].%F{red}[%?]%f [%j]%f"
+
+# initialize line editor to run out function defined below
 function zle-line-init () {
   prompt_mode
 }
-function zle-line-finish () {
-  # return to block on command
-  if [ -z ${TMUX+x} ]; then
-     print -n -- "\E[2 q"
-  else
-     print -n -- "\EPtmux;\E\E[2 q\E\\"
-  fi
 
-}
+# change prompt on keymap change
 function zle-keymap-select () {
   prompt_mode
 }
 
-# change cursor and or prompt based on prompt mode.
-# big thanks to: http://blog.yjl.im/2014/12/passing-escape-codes-for-changing-font.html
+# change cursor and or prompt based on prompt mode by checking $KEYMAP varible.
 function prompt_mode() {
   # change prompt in VTE compatible terminals
   case $KEYMAP in
     vicmd)
-      # change to block cursor
-      if [ -z ${TMUX+x} ]; then
-        print -n -- "\E[2 q"
-      else
-        print -n -- "\EPtmux;\E\E[2 q\E\\"
-      fi
       PROMPT=$PROMPT_SYMBOL_VICMD
       ;;
     viins|main)
-
-      # change to line cursor
-      if [ -z ${TMUX+x} ]; then
-        print -n -- "\E[6 q"
-      else
-        print -n -- "\EPtmux;\E\E[6 q\E\\"
-      fi
       PROMPT=$PROMPT_SYMBOL_VIINS
       ;;
   esac
@@ -128,3 +113,6 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 ```
+the resulting prompt would look like this:
+
+![zsh-result](/img/zsh-result.gif)
