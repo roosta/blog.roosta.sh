@@ -54,9 +54,9 @@ else
 endif
 ```
 Resulting cursor should look like this.
-<hr>
+<br />
+<br />
 ![vim-result](/img/vim-result.gif)
-<hr>
 
 ## Zsh:
 Starting off I assume vi mode is being used (`bindkey -v`). If you use emacs mode (`bindkey -e`) feel free to skip this part.
@@ -65,9 +65,8 @@ What I ended up opting for here was changing the symbol on the prompt depending 
 
 Included below in the script to change only the prompt and not the cursor shape.
 I use the excellent [pure prompt](https://github.com/sindresorhus/pure) and only change the
-prompt to reflect vi modes.
+the prompt symbols to reflect vi modes.
 ```zsh
-
 # Define mode prompts. Both turn red on non-zero exit code
 # these are are swapped out depening on cursor mode. Can be anything you want.
 # see zsh man pages for details about various variables and colors and whatnot available.
@@ -79,10 +78,6 @@ autoload -U colors && colors
 
 # set the initial "state"
 PROMPT=$PROMPT_SYMBOL_VIINS
-
-# define Right side prompt too. In this case they give me the last exit code
-# and the number of background jobs running
-RPROMPT="%(?.[%j].%F{red}[%?]%f [%j]%f"
 
 # initialize line editor to run out function defined below
 function zle-line-init () {
@@ -116,3 +111,67 @@ zle -N zle-keymap-select
 the resulting prompt would look like this:
 
 ![zsh-result](/img/zsh-result.gif)
+
+## Zsh with cursor change
+This is a more complete example with cursor also changing depending on mode, and I've included tmux checks like in the vimrc example. Tmux needs to be escaped before we can pass our final escape to the terminal emulator. As mentioned above I ultimatly found this to be less than ideal. The main gripe I had was that when entering copy-mode in tmux, the cursor would remain in line mode. I'm sure its possible to craft a tmux.conf to account for this.
+
+```zsh
+PROMPT_SYMBOL_VIINS="%(?.%F{white}.%F{red})❯%f%F{magenta}❯%f "
+PROMPT_SYMBOL_VICMD="%(?.%F{white}.%F{red})*%f%F{magenta}❯%f "
+
+# enable colors before setting prompt variable
+autoload -U colors && colors
+PROMPT=$PROMPT_SYMBOL_VIINS
+RPROMPT="%(?.[%j].%F{red}[%?]%f [%j]%f"
+
+function zle-line-init () {
+  prompt_mode
+}
+
+function zle-line-finish () {
+  # return to block on command
+  if [ -z ${TMUX+x} ]; then
+     print -n -- "\E[2 q"
+  else
+     print -n -- "\EPtmux;\E\E[2 q\E\\"
+  fi
+
+}
+function zle-keymap-select () {
+  prompt_mode
+}
+
+# change cursor and or prompt based on prompt mode.
+# big thanks to: http://blog.yjl.im/2014/12/passing-escape-codes-for-changing-font.html
+function prompt_mode() {
+  case $KEYMAP in
+    vicmd)
+      # change to block cursor
+      if [ -z ${TMUX+x} ]; then
+        print -n -- "\E[2 q"
+      else
+        print -n -- "\EPtmux;\E\E[2 q\E\\"
+      fi
+      PROMPT=$PROMPT_SYMBOL_VICMD
+      ;;
+    viins|main)
+      # change to line cursor
+      if [ -z ${TMUX+x} ]; then
+        print -n -- "\E[6 q"
+      else
+        print -n -- "\EPtmux;\E\E[6 q\E\\"
+      fi
+      PROMPT=$PROMPT_SYMBOL_VIINS
+      ;;
+  esac
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+```
+Result:
+<br />
+![zsh-result](/img/zsh-result-ext.gif)
