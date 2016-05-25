@@ -3,7 +3,7 @@
  :page-index 0
  :navbar? true}
 
-### Hi, I'm Roosta.
+### Hi, I'm Daniel.
 I'm a programmer working as a clojure developer out of a small firm in Oslo, Norway.
 I am passionate about code, [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software),
  games, music and art. Combined where appropriate.
