@@ -1,7 +1,7 @@
-{:site-title         "Sector ZZ9 Plural Z Alpha"
+{:site-title         "Roosta.sh"
  :author             "Daniel Berg"
  :description        "Dev, Linux and other tidbits (hyperspace travel ill-adviced)"
- :site-url           "http://roosta.sh"
+ :site-url           "http://blog.roosta.sh"
  :post-root          "posts"
  :page-root          "pages"
  :post-root-uri      "posts-output"
@@ -10,7 +10,7 @@
  :author-root-uri    "authors-output"
  :blog-prefix        nil
  :rss-name           "feed.xml"
- :rss-filters        ["cryogen"]
+ :rss-filters        ["linux"]
  :recent-posts       3
  :post-date-format   "yyyy-MM-dd"
  :sass-src           "sass"
