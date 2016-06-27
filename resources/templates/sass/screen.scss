@@ -21,6 +21,39 @@ $font-head:    'Source Sans Pro', sans-serif;
 $font-code:    monospace;
 $font-size:    16px;
 
+.black {
+  color: $color-black; }
+.red {
+  background-color: $color-red; }
+.green {
+  background-color: $color-green; }
+.yellow {
+  background-color: $color-yellow; }
+.blue {
+  background-color: $color-blue; }
+.magenta {
+  background-color: $color-magenta; }
+.cyan {
+  background-color: $color-cyan; }
+.white {
+  background-color: $color-white; }
+.brBlack {
+  background-color: $color-brBlack; }
+.brRed {
+  background-color: $color-brRed; }
+.brGreen {
+  background-color: $color-brGreen; }
+.brYellow {
+  background-color: $color-brYellow; }
+.brBlue {
+  background-color: $color-brBlue; }
+.brMagenta {
+  background-color: $color-brMagenta; }
+.brCyan {
+  background-color: $color-brCyan; }
+.gray {
+  background-color: $color-gray; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-head; }
 
