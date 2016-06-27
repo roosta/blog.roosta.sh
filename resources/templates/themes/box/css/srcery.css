@@ -1,0 +1,108 @@
+/*
+
+Srcery style (dark) (c) Pavel Pertsev (original style at https://github.com/morhetz/gruvbox)
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #1C1B19;
+}
+
+.hljs,
+.hljs-subst {
+  color: #FCE8C3;
+}
+
+/* Srcery Red */
+.hljs-deletion,
+.hljs-formula,
+.hljs-keyword,
+.hljs-link,
+.hljs-selector-tag {
+  color: #FF3128;
+}
+
+/* Srcery Blue */
+.hljs-built_in,
+.hljs-emphasis,
+.hljs-name,
+.hljs-quote,
+.hljs-strong,
+.hljs-title,
+.hljs-variable {
+  color: #5573A3;
+}
+
+/* Srcery Yellow */
+.hljs-attr,
+.hljs-params,
+.hljs-template-tag,
+.hljs-type {
+  color: #FBB829;
+}
+
+/* Srcery Magenta */
+.hljs-builtin-name,
+.hljs-doctag,
+.hljs-literal,
+.hljs-number {
+  color: #E02C6D;
+}
+
+/* Srcery Orange */
+.hljs-code,
+.hljs-meta,
+.hljs-regexp,
+.hljs-selector-id,
+.hljs-template-variable {
+  color: #D75F00;
+}
+
+/* Srcery Green */
+.hljs-addition,
+.hljs-meta-string,
+.hljs-section,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-string,
+.hljs-symbol {
+  color: #519F50;
+}
+
+/* Srcery Cyan */
+.hljs-attribute,
+.hljs-bullet,
+.hljs-class,
+.hljs-function,
+.hljs-function .hljs-keyword,
+.hljs-meta-keyword,
+.hljs-selector-pseudo,
+.hljs-tag {
+  color: #1693A5;
+}
+
+/* Srcery Gray */
+.hljs-comment {
+  color: #918175;
+}
+
+/* Srcery bright magenta */
+.hljs-link_label,
+.hljs-literal,
+.hljs-number {
+  color: #E35682;
+}
+
+.hljs-comment,
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-section,
+.hljs-strong,
+.hljs-tag {
+  font-weight: bold;
+}

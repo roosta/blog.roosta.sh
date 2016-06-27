@@ -1,6 +1,6 @@
 {:site-title         "Roosta.sh"
  :author             "Daniel Berg"
- :description        "Dev, Linux and other tidbits (hyperspace travel ill-adviced)"
+ :description        "Dev, Linux and other tidbits"
  :site-url           "http://blog.roosta.sh"
  :post-root          "posts"
  :page-root          "pages"
